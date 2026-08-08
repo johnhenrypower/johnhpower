@@ -1,1 +1,7 @@
 CLAUDE.md
+.DS_Store
+
+# Nested dashboard repos (each has its own GitHub remote and deploys to a subdomain)
+skiing-photos/
+spotify-dashboard/
+strava-dashboard/
