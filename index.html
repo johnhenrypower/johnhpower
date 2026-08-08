@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>John Power</title>
+    <meta name="description" content="John Power. MBA candidate at Kellogg, previously authentication and fraud at Visa. Writing about agentic commerce.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
@@ -13,8 +14,6 @@
             --text: #111;
             --text-secondary: #666;
             --accent: #0d9488;
-            --accent-light: #ccfbf1;
-            --card-bg: #fff;
             --border: #e5e5e5;
         }
 
@@ -34,20 +33,26 @@
             color: var(--text);
             line-height: 1.5;
             min-height: 100vh;
+            display: flex;
+            flex-direction: column;
         }
 
         .container {
+            width: 100%;
             max-width: 1400px;
             margin: 0 auto;
             padding: 0 clamp(1.5rem, 5vw, 4rem);
         }
 
+        .page {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
         /* Header */
         header {
             padding: 2rem 0;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
         }
 
         .logo {
@@ -57,26 +62,10 @@
             text-transform: uppercase;
         }
 
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-        }
-
-        .nav-links a {
-            font-size: 0.875rem;
-            color: var(--text-secondary);
-            text-decoration: none;
-            transition: color 0.2s ease;
-        }
-
-        .nav-links a:hover {
-            color: var(--text);
-        }
-
         /* Hero */
         .hero {
             padding: 8vh 0 12vh;
+            flex: 1;
         }
 
         .hero-name {
@@ -85,7 +74,7 @@
             font-weight: 400;
             line-height: 0.9;
             letter-spacing: -0.03em;
-            margin-bottom: 2rem;
+            margin-bottom: 2.5rem;
         }
 
         .hero-name span {
@@ -96,32 +85,14 @@
             font-style: italic;
         }
 
-        .hero-descriptors {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem 1.5rem;
-            margin-bottom: 3rem;
-            font-size: clamp(0.875rem, 2vw, 1rem);
-            color: var(--text-secondary);
-            text-transform: lowercase;
-        }
-
-        .hero-descriptors span {
-            position: relative;
-        }
-
-        .hero-descriptors span:not(:last-child)::after {
-            content: '/';
-            position: absolute;
-            right: -1rem;
-            color: var(--border);
-        }
-
         .hero-intro {
-            max-width: 600px;
+            max-width: 620px;
             font-size: clamp(1.125rem, 2.5vw, 1.375rem);
             line-height: 1.6;
-            color: var(--text);
+        }
+
+        .hero-intro p + p {
+            margin-top: 1.5rem;
         }
 
         .hero-intro a {
@@ -135,147 +106,43 @@
             border-bottom-color: var(--accent);
         }
 
-        /* Grid */
-        .grid-section {
-            padding: 4rem 0 8rem;
+        /* Links */
+        .links {
+            margin-top: 3.5rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem 3rem;
         }
 
-        .grid-label {
-            font-size: 0.75rem;
+        .link {
+            display: inline-flex;
+            align-items: baseline;
+            gap: 0.625rem;
+            font-size: 1rem;
             font-weight: 500;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            color: var(--text-secondary);
-            margin-bottom: 2rem;
-        }
-
-        .card-grid {
-            display: grid;
-            grid-template-columns: repeat(12, 1fr);
-            gap: 1.5rem;
-        }
-
-        .card {
-            background: var(--card-bg);
-            border: 1px solid var(--border);
-            border-radius: 1rem;
-            overflow: hidden;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            cursor: pointer;
+            color: var(--text);
             text-decoration: none;
-            color: inherit;
-            display: flex;
-            flex-direction: column;
+            padding-bottom: 0.25rem;
+            border-bottom: 1px solid var(--border);
+            transition: color 0.2s ease, border-color 0.2s ease;
         }
 
-        .card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+        .link .arrow {
+            transition: transform 0.2s ease;
         }
 
-        .card-visual {
-            aspect-ratio: 16/10;
-            background: linear-gradient(135deg, var(--accent-light) 0%, var(--bg) 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 3rem;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .card-visual img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .card-content {
-            padding: 1.5rem;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .card-tag {
-            font-size: 0.6875rem;
-            font-weight: 600;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
+        .link:hover {
             color: var(--accent);
-            margin-bottom: 0.5rem;
+            border-bottom-color: var(--accent);
         }
 
-        .card-title {
-            font-family: 'Instrument Serif', Georgia, serif;
-            font-size: 1.5rem;
-            font-weight: 400;
-            margin-bottom: 0.5rem;
-        }
-
-        .card-desc {
-            font-size: 0.875rem;
-            color: var(--text-secondary);
-            line-height: 1.5;
-        }
-
-        .card-arrow {
-            margin-top: auto;
-            padding-top: 1rem;
-            font-size: 1.25rem;
-            color: var(--text-secondary);
-            transition: transform 0.2s ease, color 0.2s ease;
-        }
-
-        .card:hover .card-arrow {
+        .link:hover .arrow {
             transform: translateX(4px);
-            color: var(--accent);
-        }
-
-        /* Card sizes */
-        .card.large {
-            grid-column: span 8;
-        }
-
-        .card.medium {
-            grid-column: span 6;
-        }
-
-        .card.small {
-            grid-column: span 4;
-        }
-
-        .card.tall .card-visual {
-            aspect-ratio: 1/1;
-        }
-
-        /* Responsive grid */
-        @media (max-width: 1024px) {
-            .card.large,
-            .card.medium {
-                grid-column: span 6;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .card.large,
-            .card.medium,
-            .card.small {
-                grid-column: span 12;
-            }
-
-            .nav-links {
-                display: none;
-            }
-
-            .hero {
-                padding: 4vh 0 8vh;
-            }
         }
 
         /* Footer */
         footer {
-            padding: 4rem 0;
+            padding: 3rem 0;
             border-top: 1px solid var(--border);
         }
 
@@ -285,27 +152,24 @@
             align-items: center;
             flex-wrap: wrap;
             gap: 1rem;
-        }
-
-        .footer-left {
             font-size: 0.875rem;
             color: var(--text-secondary);
         }
 
-        .footer-links {
-            display: flex;
-            gap: 1.5rem;
-        }
-
-        .footer-links a {
-            font-size: 0.875rem;
+        .footer-content a {
             color: var(--text-secondary);
             text-decoration: none;
             transition: color 0.2s ease;
         }
 
-        .footer-links a:hover {
+        .footer-content a:hover {
             color: var(--text);
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                padding: 4vh 0 8vh;
+            }
         }
 
         /* Subtle animation on load */
@@ -321,42 +185,26 @@
         }
 
         .hero-name,
-        .hero-descriptors,
-        .hero-intro {
+        .hero-intro,
+        .links {
             animation: fadeUp 0.8s ease forwards;
         }
 
-        .hero-descriptors {
+        .hero-intro {
             animation-delay: 0.1s;
             opacity: 0;
         }
 
-        .hero-intro {
-            animation-delay: 0.2s;
+        .links {
+            animation-delay: 0.25s;
             opacity: 0;
         }
-
-        .card {
-            animation: fadeUp 0.6s ease forwards;
-            opacity: 0;
-        }
-
-        .card:nth-child(1) { animation-delay: 0.3s; }
-        .card:nth-child(2) { animation-delay: 0.4s; }
-        .card:nth-child(3) { animation-delay: 0.5s; }
-        .card:nth-child(4) { animation-delay: 0.6s; }
-        .card:nth-child(5) { animation-delay: 0.7s; }
-        .card:nth-child(6) { animation-delay: 0.8s; }
     </style>
 </head>
 <body>
-    <div class="container">
+    <div class="container page">
         <header>
             <div class="logo">John Power</div>
-            <ul class="nav-links">
-                <li><a href="mailto:john.power@kellogg.northwestern.edu">Contact</a></li>
-                <li><a href="https://www.linkedin.com/in/johnhenrypower/" target="_blank">LinkedIn</a></li>
-            </ul>
         </header>
 
         <section class="hero">
@@ -364,89 +212,37 @@
                 <span class="first">John</span>
                 <span>Power</span>
             </h1>
-            <div class="hero-descriptors">
-                <span>product builder</span>
-                <span>skier</span>
-                <span>backgammon player</span>
+
+            <div class="hero-intro">
+                <p>
+                    Hi, I'm John. I'm an MBA candidate at
+                    <a href="https://www.kellogg.northwestern.edu/" target="_blank" rel="noopener">Kellogg</a>,
+                    and I previously built authentication and fraud products at Visa.
+                </p>
+                <p>
+                    These days I work on agentic commerce: the identity, payment, and trust
+                    rails that let AI agents buy things on a person's behalf. Most of that
+                    infrastructure does not exist yet. I build and write about the parts
+                    that need to.
+                </p>
             </div>
-            <p class="hero-intro">
-                MBA candidate at <a href="https://www.kellogg.northwestern.edu/" target="_blank">Kellogg</a>.
-                Previously built authentication and fraud products at Visa.
-                I love systems that expand human agency. Friends call me JP.
-            </p>
-        </section>
 
-        <section class="grid-section">
-            <div class="card-grid">
-                <a href="https://strava.johnhpower.com" target="_blank" class="card medium">
-                    <div class="card-visual">
-                        <img src="images/running.jpg" alt="Running">
-                    </div>
-                    <div class="card-content">
-                        <h3 class="card-title">Strava Dashboard</h3>
-                        <p class="card-desc">A live dashboard tracking my runs and activities.</p>
-                        <div class="card-arrow">→</div>
-                    </div>
+            <div class="links">
+                <a class="link" href="https://johnhenrypower.substack.com" target="_blank" rel="noopener">
+                    Substack <span class="arrow">→</span>
                 </a>
-
-                <a href="https://spotify.johnhpower.com" target="_blank" class="card small">
-                    <div class="card-visual">
-                        <img src="images/disco.jpg" alt="Disco ball">
-                    </div>
-                    <div class="card-content">
-                        <h3 class="card-title">Playlists</h3>
-                        <p class="card-desc">What I'm listening to.</p>
-                        <div class="card-arrow">→</div>
-                    </div>
-                </a>
-
-                <a href="https://skiing.johnhpower.com" target="_blank" class="card medium">
-                    <div class="card-visual">
-                        <img src="images/Dantercepies_Mountain_Lodge.jpeg" alt="Dantercepies Mountain Lodge">
-                    </div>
-                    <div class="card-content">
-                        <h3 class="card-title">Skiing</h3>
-                        <p class="card-desc">Sierra Nevadas, Wasatch Range, Chamonix Valley, and beyond.</p>
-                        <div class="card-arrow">→</div>
-                    </div>
-                </a>
-
-                <a href="https://substack.com/@johnhenrypower" target="_blank" class="card small">
-                    <div class="card-visual">
-                        <img src="images/library.jpg" alt="Library">
-                    </div>
-                    <div class="card-content">
-                        <h3 class="card-title">Writing</h3>
-                        <p class="card-desc">Writing about the new generation of fintech products.</p>
-                        <div class="card-arrow">→</div>
-                    </div>
-                </a>
-
-                <a href="https://www.linkedin.com/in/johnhenrypower/" target="_blank" class="card small">
-                    <div class="card-visual">
-                        <img src="images/headshot_uncropped.jpg" alt="John Power">
-                    </div>
-                    <div class="card-content">
-                        <h3 class="card-title">LinkedIn</h3>
-                        <p class="card-desc">The professional stuff.</p>
-                        <div class="card-arrow">→</div>
-                    </div>
+                <a class="link" href="https://www.linkedin.com/in/johnhenrypower/" target="_blank" rel="noopener">
+                    LinkedIn <span class="arrow">→</span>
                 </a>
             </div>
         </section>
 
         <footer>
             <div class="footer-content">
-                <div class="footer-left">
-                    © 2025 John Power
-                </div>
-                <div class="footer-links">
-                    <a href="mailto:john.power@kellogg.northwestern.edu">Email</a>
-                    <a href="https://www.linkedin.com/in/johnhenrypower/" target="_blank">LinkedIn</a>
-                </div>
+                <div>© 2026 John Power</div>
+                <div><a href="mailto:john.power@kellogg.northwestern.edu">Email</a></div>
             </div>
         </footer>
     </div>
 </body>
 </html>
-
