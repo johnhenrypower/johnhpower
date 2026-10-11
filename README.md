@@ -1,4 +1,4 @@
-# personal-website
+# johnhpower-website
 
 `johnhpower.com`. A single page: John's name, a two-paragraph intro positioning him
 on agentic commerce, and two links (Substack, LinkedIn).
